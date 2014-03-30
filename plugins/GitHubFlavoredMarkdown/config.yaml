@@ -1,0 +1,19 @@
+id: GitHubFlavoredMarkdown
+key: GitHubFlavoredMarkdown
+name: GitHub Flavored Markdown
+version: 0.0.1
+author_name: Yuichi Takeuchi
+author_link: http://takeyu-web.com/
+doc_link: https://help.github.com/articles/github-flavored-markdown
+description: <__trans phrase="_PLUGIN_DESCRIPTION">
+l10n_class: GitHubFlavoredMarkdown::L10N
+
+config_settings:
+    GFM_API:
+        default: https://api.github.com/markdown/raw
+
+text_filters:
+    gfm:
+        label: GitHub Flavored Markdown
+        handler: $GitHubFlavoredMarkdown::GitHubFlavoredMarkdown::Plugin::gfm_filter
+        condition: sub { 1 }
