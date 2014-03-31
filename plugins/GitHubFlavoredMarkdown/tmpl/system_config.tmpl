@@ -1,0 +1,23 @@
+<__trans_section component="GitHubFlavoredMarkdown">
+<mtapp:setting
+    id="gfm_api_base"
+    label="GFM API">
+    <input type="text" name="gfm_api_base" value="<$mt:getvar name='gfm_api_base'$>" />
+</mtapp:setting>
+<mtapp:setting
+    id="gfm_api_anonymous"
+    label="<__trans phrase='Use Anonymous mode'>">
+    <label><input type="radio" name="gfm_api_anonymous" value="1" <mt:if name='gfm_api_anonymous'>checked</mt:if>/> <__trans phrase="Yes" /></label>
+    <label><input type="radio" name="gfm_api_anonymous" value="0" <mt:unless name='gfm_api_anonymous'>checked</mt:unless>/> <__trans phrase="No" /></label>
+</mtapp:setting>
+<mtapp:setting
+    id="gfm_api_username"
+    label="<__trans phrase='GFM API Username'>">
+    <input type="text" name="gfm_api_username" value="<$mt:getvar name='gfm_api_username'$>" />
+</mtapp:setting>
+<mtapp:setting
+    id="gfm_api_password"
+    label="<__trans phrase='GFM API Password'>">
+    <input type="password" name="gfm_api_password" value="<$mt:getvar name='gfm_api_password'$>" />
+</mtapp:setting>
+</__trans_section>

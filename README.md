@@ -13,17 +13,33 @@ mt-plugin-GitHubFlavoredMarkdown
 
 ![Hello World](http://i.imgur.com/WrjJcx4.png)
 
-##設定
+## 設定
+
+### 認証
+
+デフォルトでは匿名モードでGFM APIを利用します。しかしながら、GitHub公式のGFM APIは、匿名モードではクライアントIPアドレスにつき60回/時の利用制限があり、現実的には使えません。
+
+本プラグインはシステムのプラグイン一覧画面より、APIのURL（※後述の互換APIを利用する際に設定）および、匿名モードのON/OFF、匿名でない場合に使用する認証情報を設定できます。
+
+通常、以下のように設定して下さい。
+
+項目 | 値
+------------ | -------------
+匿名モード | はい
+APIユーザー名 | GitHubのログインユーザー名
+APIパスワード | GitHubのログインパスワード
+
 
 ### 互換APIを使う
 
 GitHubのGFM APIはアクセス制限があるので、実際には[GitHub's Markdown Rendering API compatible API](http://gfm-kyanny.sqale.jp/)([GitHub](https://github.com/kyanny/gfm-rendering-compatible-api))などの互換APIサーバを自前で用意する必要があるでしょう。
 
-互換APIを使うようにするには、`mt-config.cgi`に`GFM_API`設定を追加します。
+互換APIを使うようにするには、「GFM API」設定を変更します。
 
-mt-config.cgi
+項目 | 値
+------------ | -------------
+GFM API | http://your-gfm-compatible-api-server/markdown/raw
 
-    GFM_API http://your-gfm-compatible-api-server/markdown/raw
 
 ##スタイル
 
@@ -33,7 +49,8 @@ CSSは[Gist: Github Markdown CSS - for Markdown Editor Preview](https://gist.git
 
 ##TODO
 
-- 認証付きリクエストへの対応（API制限上限対策）
+- キャッシュ対応によるAPI利用制限緩和
+- ダイナミックパブリッシング対応
 - API残り回数チェック
 - シンタックスハイライトをなんとかしたい
 
